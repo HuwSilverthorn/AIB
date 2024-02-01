@@ -12,13 +12,17 @@ Invoke-WebRequest -Uri $VSProURL -OutFile $outputPath
 #    '--add Microsoft.VisualStudio.Component.Windows10SDK.17134'
 #    '--add Microsoft.Net.Component.4.7.1.TargetingPack'
 #) 
+$workloadArgument = @(
+    '--add Microsoft.VisualStudio.Component.Roslyn.Compiler'
+) 
 
-#$optionsAddLayout          = [string]::Join(" ", $workloadArgument )
+$optionsAddLayout          = [string]::Join(" ", $workloadArgument )
 $optionsQuiet              = "--quiet"
 #$optionsLayout             = "--layout $downloadPath"
 #$optionsIncludeRecommended = "--includeRecommended"
 
 $vsOptions = @(
+    $optionsAddLayout,
     $optionsQuiet
 )
 
